@@ -1,0 +1,213 @@
+// VARIABLES
+
+$pale-blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+
+$primary: hsl(6, 100%, 80%);
+$secondary: hsl(335, 100%, 65%); 
+
+$font-primary: 'Raleway', sans-serif; // 400,700
+
+// BASE
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-primary;
+    font-weight: 400;
+    height: 100vh;
+    width: 100vw;
+    background-color: $very-dark-blue;
+    background-image: url(/images/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (max-width: 375px) {
+        background-size: cover;
+        align-items: flex-start;
+    }
+
+}
+
+// MAIN
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: 375px) {
+        top: 50%;
+        transform: translateY(50%);
+    }
+}
+
+.upload {
+    background-color: $dark-blue;
+    width: 35rem;
+    border-radius: 5px 100px 5px 5px;
+    margin: 2rem;
+
+    @media only screen and (max-width: 375px) {
+        width: 90vw;
+    }
+
+    &__logo {
+        margin: 3rem;
+        opacity: 80%;
+    }
+
+    &__icons {
+        margin: 0 3rem 3rem 3rem;
+        width: 17rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    &__icon {
+        background-color: $very-dark-blue;
+        padding: 1rem;
+        border-radius: 5px;
+        height: 4rem;
+    }
+}
+
+.progress {
+    background-color: $dark-blue;
+    border-radius: 5px;
+    height: 12rem;
+    width: 45rem;
+    position: relative;
+
+    @media only screen and (max-width: 375px) {
+        width: 90vw;
+        margin: 0 auto;
+    }
+
+    &__header {
+        color: white;
+        margin: 3rem 3rem 2rem 3rem;
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 80%;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    &__bar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0rem 3rem;
+        position: relative;
+
+        &-background {
+            content: "";
+            background-color: $very-dark-blue;
+            width: 100%;
+            height: 15px;
+            display: block;
+            border-radius: 50px;
+            position: absolute;
+        }
+
+        &-front {
+            content: "";
+            background-image: linear-gradient(90deg, #e66465, #9198e5);
+            width: 81.5%;
+            height: 12px;
+            margin-left: 1.5px;
+            border-radius: 50px;
+            position: absolute;
+
+
+            &::after {
+                content: "";
+                width: 1rem;
+                height: 1rem;
+                border-radius: 100px;
+                position: absolute;
+                background-color: #ffffff;
+                right: 1.5px;
+                top: 1px;
+                opacity: 90%;
+            }
+        }
+    }
+
+    &__status {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        margin: 1.5rem 3rem;
+    }
+
+    &__left {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        width: max-content;
+        position: absolute;
+        top: -5rem;
+        right: 3rem;
+
+        @media only screen and (max-width: 375px) {
+            top: 9rem;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        &-number {
+            font-size: 4rem;
+            color: $very-dark-blue;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        &-number-gb {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: $grayish-blue;
+            margin-left: 1rem;
+        
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 2rem solid white;
+            border-left: 2rem solid transparent;
+            top: 6rem;
+            right: 0rem;
+
+            @media only screen and (max-width: 375px) {
+                display: none;
+            }
+        }
+    }
+}
